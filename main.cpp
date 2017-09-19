@@ -12,6 +12,15 @@ Php::Value quick_sort(Php::Parameters &params)
     return arr;
 }
 
+Php::Value heap_sort(Php::Parameters &params)
+{
+    std::vector<int> arr = params[0];
+
+    heapSort(arr);
+
+    return arr;
+}
+
 /**
  *  tell the compiler that the get_module is a pure C function
  */
@@ -35,6 +44,10 @@ extern "C" {
             Php::ByVal("a", Php::Type::Array)
         });
         
+        extension.add<heap_sort>("heap_sort", {
+            Php::ByVal("a", Php::Type::Array)
+        });
+
         // return the extension
         return extension;
     }
