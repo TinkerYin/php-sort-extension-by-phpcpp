@@ -5,7 +5,7 @@
 
 Php::Value quick_sort(Php::Parameters &params)
 {
-    std::vector<int> arr = params[0];
+    std::vector<int> arr = Php::array_values(params[0]);
 
     quickSort(arr);
 
@@ -14,7 +14,7 @@ Php::Value quick_sort(Php::Parameters &params)
 
 Php::Value heap_sort(Php::Parameters &params)
 {
-    std::vector<int> arr = params[0];
+    std::vector<int> arr = Php::array_values(params[0]);
 
     heapSort(arr);
 
